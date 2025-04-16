@@ -71,6 +71,10 @@ h6 {
   isolation: isolate;
 }
 
+button {
+  cursor: pointer;
+}
+
 li {
   list-style: none;
 }
@@ -193,6 +197,14 @@ li {
   background-color: #FFFFFF;
   border-radius: 12px;
   padding: 12px;
+  border: 2px solid transparent;
+}
+
+.category-button:hover {
+  cursor: pointer;
+  border: 2px solid #A729F5;
+  transition: all 0.4s ease-in-out;
+
 }
 
 .category-button p {
@@ -271,9 +283,16 @@ li {
   display: flex;
   align-items: center;
   min-height: 66px;
-  max-height: 66px;
   min-width: 100%;
   transition: all 0.3s ease-in-out;
+}
+
+.option-btn:hover {
+
+  .choiceBtn {
+    background-color: #F6E7FF;
+    color: #A729F5;
+  }
 }
 
 .option-btn.selected {
@@ -306,7 +325,7 @@ li {
   align-items: center;
 
   padding-right: 40px;
-  padding-left: 10px;
+  /* padding-left: 7px; */
   /* sağda boşluk bırak ikonu yerleştirmek için */
 
 }
@@ -557,5 +576,22 @@ li {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .header {
+    margin-bottom: 85px;
+  }
 
+
+  .question-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 131px;
+  }
+
+  .progressBar {
+    margin-top: 180px;
+  }
+
+  .option-btn {
+    width: 564px;
+  }
 }

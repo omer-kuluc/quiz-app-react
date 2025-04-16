@@ -152,62 +152,64 @@ function Questions({ selectedCategory, quizData, setSelectedCategory }) {
         selectedCategory={selectedCategory}
         correctAnswerCount={correctAnswerCount}
         selectedTopic={selectedTopic}
-        setSelectedCategory={setSelectedCategory} // isteğe bağlı: tekrar başlatmak için
+        setSelectedCategory={setSelectedCategory}
       />
     );
   }
 
   return (
-    <>
-      <p className='question-number'>Question {currentQuestionIndex + 1} of {selectedTopic.questions.length} </p>
-      <p className='question-text'>{currentQuestion.question}</p>
-      <ProgressBar progressBarPercentage={progressBarPercentage} />
+    <div className="question-container">
+      <>
+        <div className="question-area">
+          <p className='question-number'>Question {currentQuestionIndex + 1} of {selectedTopic.questions.length} </p>
+          <p className='question-text'>{currentQuestion.question}</p>
+          <ProgressBar progressBarPercentage={progressBarPercentage} />
+        </div>
 
-      <div className="option-buttons">
-        {currentQuestion.options.map((x, i) => {
-          const isCorrect = x === correctAnswer;
-          const isSelected = x === selectedOption;
-
-          let buttonClass = "option-btn";
-          let spanClass = "choiceBtn";
-
-          if (isSubmit) {
-            if (isCorrect && isSelected) {
-              buttonClass += " correct selected";
-              spanClass += " correct selected";
-            } else if (isCorrect) {
-              buttonClass += " correct";
-              spanClass += " correct";
-            } else if (isSelected) {
-              buttonClass += " wrong";
-              spanClass += " wrong";
-            }
-          } else {
-            if (isSelected) {
-              buttonClass += " selected";
-              spanClass += " selected";
-            }
-          }
-
-          return (
-            <button key={i} onClick={() => handleOptionClick(x)} className={buttonClass}>
-              <span className={spanClass}>{selections[i]}</span>
-              <p className='option-text'>{x}</p>
-            </button>
-          );
-        })}
-      </div>
-
-      <div className="submit-next-btns">
-        {isSubmit ? (
-          <button onClick={handleNextQuestion}>
-            {isLastQuestion ? "See results" : "Next question"}
-          </button>
-        ) : (
-          <button onClick={handleSubmit}>Submit answer</button>
-        )}
-      </div>
-    </>
+        <div className="answer-area">
+          <div className="option-buttons">
+            {currentQuestion.options.map((x, i) => {
+              const isCorrect = x === correctAnswer;
+              const isSelected = x === selectedOption;
+              let buttonClass = "option-btn";
+              let spanClass = "choiceBtn";
+              if (isSubmit) {
+                if (isCorrect && isSelected) {
+                  buttonClass += " correct selected";
+                  spanClass += " correct selected";
+                } else if (isCorrect) {
+                  buttonClass += " correct";
+                  spanClass += " correct";
+                } else if (isSelected) {
+                  buttonClass += " wrong";
+                  spanClass += " wrong";
+                }
+              } else {
+                if (isSelected) {
+                  buttonClass += " selected";
+                  spanClass += " selected";
+                }
+              }
+              return (
+                <button key={i} onClick={() => handleOptionClick(x)} className={buttonClass}>
+                  <span className={spanClass}>{selections[i]}</span>
+                  <p className='option-text'>{x}</p>
+                </button>
+              );
+            })}
+          </div>
+          <div className="submit-next-btns">
+            {isSubmit ? (
+              <button onClick={handleNextQuestion}>
+                {isLastQuestion ? "See results" : "Next question"}
+              </button>
+            ) : (
+              <button onClick={handleSubmit}>Submit answer</button>
+            )}
+          </div>
+        </div>
+      </>
+    </div>
   );
 }
 
