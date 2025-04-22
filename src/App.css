@@ -1,75 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300..900&display=swap');
 
-/* 1. Use a more-intuitive box-sizing model */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 
-/* 2. Remove default margin */
-* {
-  margin: 0;
-}
-
-body {
-  /* 3. Add accessible line-height */
-  line-height: 1.5;
-  /* 4. Improve text rendering */
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Rubik';
-}
-
-/* 5. Improve media defaults */
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-/* 6. Inherit fonts for form controls */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-/* 7. Avoid text overflows */
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-/* 8. Improve line wrapping */
-p {
-  /* text-wrap: pretty; */
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-wrap: balance;
-}
-
-/*
-  9. Create a root stacking context
-*/
-#root,
-#__next {
-  isolation: isolate;
-}
 
 button {
   cursor: pointer;
@@ -79,6 +10,18 @@ li {
   list-style: none;
 }
 
+
+body.light {
+  --bg-color: #fff;
+  --text-color: #313E51;
+  --intro-text-color: #626C7F;
+  --category-bg: #FFFFFF;
+  --button-bg: #A729F5;
+  --progress-bg: #ffffff;
+  --progress-inner: #A729F5;
+
+}
+
 .container {
   background-image: url('/img/background.png');
   background-repeat: no-repeat;
@@ -86,6 +29,7 @@ li {
   background-size: cover;
   padding: 26px 24px 139px;
   min-height: 100vh;
+  transition: 1s ease-in-out;
 }
 
 .header {
@@ -96,7 +40,7 @@ li {
   align-items: center;
 }
 
-.topicSection {
+.topic-section {
   display: flex;
   gap: 10px;
   align-items: center;
@@ -156,7 +100,7 @@ li {
   font-size: 40px;
   font-weight: 300;
   line-height: 40px;
-  color: #313E51;
+  color: var(--text-color);
   margin-bottom: 8px;
 }
 
@@ -164,7 +108,7 @@ li {
   font-size: 40px;
   font-weight: 500;
   line-height: 40px;
-  color: #313E51;
+  color: var(--text-color);
   margin-bottom: 16px;
 }
 
@@ -194,16 +138,19 @@ li {
   gap: 16px;
   align-items: center;
   box-shadow: 0px 16px 40px 0px #8FA0C124;
-  background-color: #FFFFFF;
+  background-color: var(--category-bg);
   border-radius: 12px;
   padding: 12px;
   border: 2px solid transparent;
+  transition: 1s ease-in-out;
+
 }
 
 .category-button:hover {
   cursor: pointer;
-  border: 2px solid #A729F5;
+  border: 2px solid transparent;
   transition: all 0.4s ease-in-out;
+  box-shadow: 0 4px 15px 2px #0003;
 
 }
 
@@ -212,7 +159,7 @@ li {
   font-weight: 500;
   line-height: 18px;
   text-align: left;
-  color: #313E51;
+  color: var(--text-color);
 }
 
 .question-header {
@@ -246,30 +193,30 @@ li {
 
 .progressBar {
   margin-top: 24px;
-  background-color: white;
+  background-color: var(--progress-bg);
   height: 16px;
   border-radius: 6px;
   padding: 3px;
   box-sizing: border-box;
   margin-bottom: 40px;
+  transition: 1s ease-in-out;
+
 }
 
 .progressBarInner {
-  background-color: #A729F5;
+  background-color: var(--progress-inner);
   width: 10%;
   height: 8px;
   content: "";
   border-radius: 6px;
+  transition: 1s ease-in-out;
+
 }
 
 
 .option-buttons {
   display: grid;
   gap: 12px;
-}
-
-.option-text {
-  padding: 0;
 }
 
 .option-btn {
@@ -284,7 +231,8 @@ li {
   align-items: center;
   min-height: 66px;
   min-width: 100%;
-  transition: all 0.3s ease-in-out;
+  transition: 1s ease-in-out;
+  text-align: left;
 }
 
 .option-btn:hover {
@@ -317,14 +265,31 @@ li {
   background-position: 99% 50%;
 }
 
-.option-btn.correct {
+@keyframes blink {
+
+  0%,
+  100% {
+    background-color: #49d893;
+
+
+  }
+
+  50% {
+    background-color: #ffffff;
+
+
+  }
+}
+
+.option-btn.correct.blink {
   background-image: url("/img/correct-answer-icon.svg");
   background-repeat: no-repeat;
   background-size: auto;
   background-position: 99% 50%;
   align-items: center;
 
-  padding-right: 40px;
+  padding-right: 35px;
+  animation: blink 1s ease-in-out 1.5;
   /* padding-left: 7px; */
   /* sağda boşluk bırak ikonu yerleştirmek için */
 
@@ -348,6 +313,7 @@ li {
   font-size: 18px;
   line-height: 100%;
   letter-spacing: 0%;
+  color: #313E51;
 
 }
 
@@ -407,6 +373,11 @@ li {
   margin-bottom: 139px;
 }
 
+.submit-next-btns button:hover,
+.play-again-button:hover {
+  background-color: #d394fa;
+}
+
 .result-area h2 {
   font-size: 40px;
   font-weight: 300;
@@ -430,7 +401,8 @@ li {
   border-radius: 12px;
   box-shadow: 0px 16px 40px 0px #8FA0C124;
   background-color: #FFFFFF;
-  padding-bottom: 32px;
+  transition: 1s ease-in-out;
+
 }
 
 .score-content-header {
@@ -520,7 +492,7 @@ li {
     color: #313E51;
   }
 
-  .topicSection {
+  .topic-section {
     gap: 24px;
 
     p {
@@ -543,16 +515,13 @@ li {
     font-size: 36px;
     line-height: 120%;
     color: #313E51;
-    margin-bottom: 40px;
   }
-
 
   .progressBar {
     background-color: white;
     height: 16px;
     border-radius: 6px;
     padding: 3px;
-    box-sizing: border-box;
     margin-bottom: 64px;
   }
 
@@ -560,13 +529,95 @@ li {
     border-radius: 24px;
     gap: 32px;
     height: 80px;
-    transition: all 0.3s ease-in-out;
+    /* transition: all 0.3s ease-in-out; */
   }
 
+  .option-text {
+    font-size: 28px;
+    color: #313E51;
+  }
+
+  /*score-page*/
+
+  .result-area {
+    margin-bottom: 64px;
+  }
+
+  .result-area h2 {
+    font-size: 64px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #313E51;
+  }
+
+  .result-area h3 {
+    font-size: 64px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #313E51;
+  }
+
+  .score-content-card {
+    margin-top: 0;
+    margin-bottom: 32px;
+    padding: 48px;
+    border-radius: 24px;
+  }
+
+  .score-content-header {
+    gap: 24px;
+    margin-bottom: 54px;
+
+    img {
+      width: 56px;
+    }
+  }
+
+  .result-category {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+
+  .score-text {
+    font-weight: 500;
+    font-size: 144px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #313E51;
+    text-align: center;
+  }
+
+  .total-question-number {
+
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: #626C7F;
+  }
+
+  .submit-next-btns button,
+  .play-again-button {
+    height: 92px;
+    border-radius: 24px;
+    box-shadow: 0px 16px 40px 0px #8FA0C124;
+    background-color: #A729F5;
+    border-style: none;
+    color: white;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 100%;
+    padding: 32px;
+    letter-spacing: 0;
+    margin-bottom: 139px;
+  }
 }
 
 
-@media(width >=1110px) {
+@media(width >=1280px) {
 
   .container {
     padding-inline: 140px;
@@ -574,10 +625,18 @@ li {
 
   .quiz-subjects {
     grid-template-columns: repeat(2, 1fr);
+
+    h2 {
+      margin-bottom: 48px;
+    }
   }
 
   .header {
     margin-bottom: 85px;
+  }
+
+  .category-button {
+    padding: 20px;
   }
 
 
@@ -587,11 +646,28 @@ li {
     gap: 131px;
   }
 
+  .question-area {
+    display: flex;
+    flex-direction: column;
+    height: 410px;
+    gap: 27px;
+    justify-content: space-between;
+  }
+
   .progressBar {
-    margin-top: 180px;
+    margin-bottom: 0;
+    margin-top: auto;
   }
 
   .option-btn {
     width: 564px;
+    height: 92px;
   }
+
+  .score-page-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 143px;
+  }
+
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import './App.css'
+import './darkMode.css'
 
 function App() {
 
@@ -12,7 +12,25 @@ function App() {
       setQuizData(quizzes);
     }
     getData();
-  }, [])
+  }, []);
+
+
+  function getSystemThemePref() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark-mode' : 'light';
+  }
+
+  const [theme, setTheme] = useState(localStorage.theme || getSystemThemePref());
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
+  function handleChangeTheme(e) {
+    const changedTheme = e.target.checked ? 'dark-mode' : 'light';
+    setTheme(changedTheme);
+    localStorage.theme = changedTheme;
+  }
+
 
   if (!quizData) {
     return <div>Loading...</div>
@@ -22,14 +40,16 @@ function App() {
     <div className="container">
       {!selectedCategory ? (
         <>
-          <Header selectedCategory={selectedCategory} />
+          <Header selectedCategory={selectedCategory} theme={theme} setTheme={setTheme}
+            handleChangeTheme={handleChangeTheme} />
           <Menu quizData={quizData} setSelectedCategory={setSelectedCategory} />
         </>
       )
         :
         (
           <>
-            <Header selectedCategory={selectedCategory} />
+            <Header selectedCategory={selectedCategory} theme={theme} setTheme={setTheme}
+              handleChangeTheme={handleChangeTheme} />
             <Questions
               selectedCategory={selectedCategory}
               quizData={quizData}
@@ -42,23 +62,27 @@ function App() {
   )
 }
 
-function Header({ selectedCategory }) {
+function Header({ selectedCategory, theme, handleChangeTheme }) {
   return (
     <div className="header">
       {selectedCategory ?
-        <div className="topicSection">
+        <div className="topic-section">
           <img src={`/img/icon-${selectedCategory.toLowerCase()}.svg`} alt="" />
           <p>{selectedCategory}</p>
         </div> :
-        <div className="topicSection">
+        <div className="topic-section">
         </div>
       }
       <div className="header-images">
         <div className="themeOptions">
-          <label>
-            <span><img src="/img/light-theme.svg" alt="Light Mode Icon" /></span>
-            <input className="switch" type="checkbox" id="themeChange" />
-            <span><img src="/img/dark-theme.svg" alt="Dark Mode Icon" /></span>
+          <label className='lightDark'>
+            <span><img src={theme === "light" ? "/img/sun-icon.svg" : "/img/dark-sun-icon.svg"} alt="Light Mode Icon" /></span>
+            <input className="switch"
+              type="checkbox"
+              id="themeChange"
+              checked={theme === "dark-mode"}
+              onChange={handleChangeTheme} />
+            <span><img src={theme === "light" ? "/img/moon-icon.svg" : "/img/dark-moon-icon.svg"} alt="Dark Mode Icon" /></span>
           </label>
         </div>
       </div>
@@ -178,7 +202,7 @@ function Questions({ selectedCategory, quizData, setSelectedCategory }) {
                   buttonClass += " correct selected";
                   spanClass += " correct selected";
                 } else if (isCorrect) {
-                  buttonClass += " correct";
+                  buttonClass += " correct blink";
                   spanClass += " correct";
                 } else if (isSelected) {
                   buttonClass += " wrong";
@@ -218,21 +242,25 @@ function Questions({ selectedCategory, quizData, setSelectedCategory }) {
 function Result({ selectedCategory, correctAnswerCount, selectedTopic, setSelectedCategory }) {
   return (
     <>
-      <div className="result-area">
-        <h2>Quiz completed</h2>
-        <h3>You scored...</h3>
-      </div>
-      <div className="score-content-card">
-        <div className="score-content-header">
-          <img src={`/img/icon-${selectedCategory.toLowerCase()}.svg`} alt="" />
-          <p className='result-category'>{selectedCategory}</p>
+      <div className="score-page-container">
+        <div className="result-area">
+          <h2>Quiz completed</h2>
+          <h3>You scored...</h3>
         </div>
-        <p className='score-text'>{correctAnswerCount}</p>
-        <p className='total-question-number'>out of {selectedTopic.questions.length}</p>
+        <div className="score-card-container">
+          <div className="score-content-card">
+            <div className="score-content-header">
+              <img src={`/img/icon-${selectedCategory.toLowerCase()}.svg`} alt="" />
+              <p className='result-category'>{selectedCategory}</p>
+            </div>
+            <p className='score-text'>{correctAnswerCount}</p>
+            <p className='total-question-number'>out of {selectedTopic.questions.length}</p>
+          </div>
+          <button className='play-again-button' onClick={() => setSelectedCategory(null)}>
+            Play again
+          </button>
+        </div>
       </div>
-      <button className='play-again-button' onClick={() => setSelectedCategory(null)}>
-        Play again
-      </button>
     </>
   );
 }

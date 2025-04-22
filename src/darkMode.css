@@ -1,0 +1,121 @@
+.lightDark {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  justify-content: end;
+  height: 40px;
+}
+
+.lightDark img {
+  width: 16px;
+  height: 16px;
+}
+
+body.dark-mode {
+  height: 100vh;
+
+  .container {
+    background-color: #313e51;
+    background-image: url("/img/mobile-dark-circle.svg");
+    transition: 1s ease-in-out;
+
+  }
+
+  .head-content {
+
+    h1,
+    h2,
+    p {
+      color: white;
+    }
+  }
+
+  .topic-section {
+    p {
+      color: white;
+    }
+  }
+
+  .category-buttons p {
+    color: white;
+
+  }
+
+  .category-button:hover {
+    box-shadow: 0px 4px 15px 2px #c4cfd124;
+  }
+
+  .question-area {
+    .question-number {
+      color: #ABC1E1;
+    }
+
+    .question-text {
+      color: white;
+    }
+
+  }
+
+  .progressBar {
+    background-color: #3B4D66;
+  }
+
+  .progressBarInner {
+    background-color: #A729F5;
+  }
+
+  .option-btn {
+    background-color: #3B4D66;
+    box-shadow: 0px 16px 40px 0px #313E5124;
+    transition: 1s ease-in-out;
+  }
+
+  @keyframes blink {
+
+    0%,
+    100% {
+      background-color: #49d893;
+
+
+    }
+
+    50% {
+      background-color: red;
+
+
+    }
+  }
+
+  .option-btn.correct.blink {
+    animation: blink 1s ease-in-out 1.5;
+
+  }
+
+  .option-text {
+    color: white;
+  }
+
+  .result-area {
+
+    h2,
+    h3 {
+      color: white;
+    }
+  }
+
+  .score-content-card {
+    background-color: #3B4D66;
+    box-shadow: 0px 16px 40px 0px #313E5124;
+    transition: 1s ease-in-out;
+
+    p {
+      color: white;
+    }
+
+    .total-question-number {
+      color: #ABC1E1;
+    }
+  }
+
+}
