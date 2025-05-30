@@ -369,7 +369,6 @@ body.light {
   font-weight: 500;
   line-height: 18px;
   padding: 19px;
-  margin-bottom: 139px;
 }
 
 .submit-next-btns button:hover,
@@ -439,6 +438,21 @@ body.light {
 
 }
 
+.warning-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.warning-text {
+  color: #d9534f;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+
+}
 
 
 @media(width >=768px) {
@@ -611,7 +625,18 @@ body.light {
     line-height: 100%;
     padding: 32px;
     letter-spacing: 0;
-    margin-bottom: 139px;
+  }
+
+
+  .warning-section {
+    margin-top: 32px;
+    gap: 7px;
+
+  }
+
+  .warning-text {
+    font-size: 24px;
+
   }
 }
 

@@ -126,12 +126,15 @@ function ProgressBar({ progressBarPercentage }) {
   )
 }
 
+// Güncellenmiş Questions component içinde:
+
 function Questions({ selectedCategory, quizData, setSelectedCategory }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [isSubmit, setSubmit] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [correctAnswerCount, setCorrectAnswerCount] = useState(0);
-  const [showResult, setShowResult] = useState(false); // ✅ yeni eklendi
+  const [showResult, setShowResult] = useState(false);
+  const [showWarning, setShowWarning] = useState(false); // ✅ Yeni eklendi
 
   const selections = ["A", "B", "C", "D"];
 
@@ -145,12 +148,13 @@ function Questions({ selectedCategory, quizData, setSelectedCategory }) {
   function handleOptionClick(option) {
     if (!isSubmit) {
       setSelectedOption(option);
+      setShowWarning(false); // ✅ Seçim yapılırsa uyarı kaybolsun
     }
   }
 
   function handleSubmit() {
     if (!selectedOption) {
-      alert("Please select an option before submitting.");
+      setShowWarning(true); // ✅ Alert yerine uyarı gösterilsin
       return;
     }
 
@@ -158,6 +162,7 @@ function Questions({ selectedCategory, quizData, setSelectedCategory }) {
       setCorrectAnswerCount((prev) => prev + 1);
     }
     setSubmit(true);
+    setShowWarning(false); // ✅ Cevap seçilip gönderildiyse uyarıyı gizle
   }
 
   function handleNextQuestion() {
@@ -167,6 +172,7 @@ function Questions({ selectedCategory, quizData, setSelectedCategory }) {
       setCurrentQuestionIndex((prev) => prev + 1);
       setSelectedOption(null);
       setSubmit(false);
+      setShowWarning(false); // ✅ Yeni soru geldiğinde uyarı temizlensin
     }
   }
 
@@ -222,13 +228,22 @@ function Questions({ selectedCategory, quizData, setSelectedCategory }) {
               );
             })}
           </div>
+
           <div className="submit-next-btns">
             {isSubmit ? (
               <button onClick={handleNextQuestion}>
                 {isLastQuestion ? "See results" : "Next question"}
               </button>
             ) : (
-              <button onClick={handleSubmit}>Submit answer</button>
+              <>
+                <button onClick={handleSubmit}>Submit answer</button>
+                {showWarning && (
+                  <div className="warning-section">
+                    <img src="/img/cross-icon.svg" alt="" />
+                    <p className="warning-text">Please select an answer.</p>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>
