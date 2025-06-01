@@ -13,7 +13,7 @@ Kullanıcı dostu arayüzü ve anında geri bildirim özelliğiyle sade ve verim
 
 ---
 
-## 🎯 Proje Özeti
+##  Proje Özeti
 
 **Quiz App**, kullanıcıların HTML, CSS, JavaScript ve Erişilebilirlik (Accessibility) gibi frontend konularında bilgi seviyelerini test etmelerine olanak tanır.  
 
@@ -21,31 +21,31 @@ Uygulama, her kategoriye özel soruları göstererek seçilen cevabın doğru ya
 
 ---
 
-## 🚀 Özellikler
+##  Özellikler
 
 ### ✅ Kategori Seçimi
 
 - HTML, CSS, JavaScript ve Accessibility olmak üzere 4 kategori sunar.
 - Başlangıç ekranında kullanıcı istediği konuyu seçebilir.
 
-### 🌗 Tema Değiştirme (Dark / Light)
+###  Tema Değiştirme (Dark / Light)
 
 - Sayfanın sağ üst köşesindeki butonla tema değiştirilebilir.
 - Tema tercihi `localStorage` ile saklanır, sayfa yenilendiğinde bile hatırlanır.
 
-### 🧩 Soru-Cevap Mantığı
+###  Soru-Cevap Mantığı
 
 - Her soru için dört seçenek sunulur.
 - Cevap seçildiğinde doğruysa yeşil, yanlışsa kırmızıyla işaretlenir.
 - Yanlış cevaplarda kısa bir **sallanma animasyonu**, doğru cevapta ise büyüyüp küçülme efekti görülür.
 - Cevap verildikten sonra ilerlemek için bir "Next Question" butonu görünür.
 
-### 🏁 Sonuç Ekranı
+###  Sonuç Ekranı
 
 - Tüm sorular cevaplandıktan sonra toplam doğru cevap sayısı gösterilir.
 - Kullanıcı "Play Again" butonuyla tekrar quiz çözmeye başlayabilir.
 
-### 🧱 Bileşen Yapısı
+###  Bileşen Yapısı
 
 - Uygulama, React bileşenlerine bölünerek yapılandırılmıştır:
   - WelcomeScreen
@@ -59,7 +59,7 @@ Uygulama, her kategoriye özel soruları göstererek seçilen cevabın doğru ya
 
 ---
 
-## 🛠️ Kullanılan Teknolojiler
+## Kullanılan Teknolojiler
 
 - React  
 - JavaScript (ES6+)  
@@ -69,9 +69,43 @@ Uygulama, her kategoriye özel soruları göstererek seçilen cevabın doğru ya
 
 ---
 
-## 💻 Kurulum ve Çalıştırma
+##  Kurulum ve Çalıştırma
 
 ### 1. Depoyu Klonla
 
 ```bash
 git clone https://github.com/kullanici-adi/quiz-app-react.git
+```
+
+### 2. Dizin Değiştir
+
+```bash
+cd quiz-app-react
+```
+
+### 3. Gerekli Paketleri Kur
+
+```bash
+npm install
+```
+
+### 4. Uygulamayı Başlat
+
+```bash
+npm run dev
+```
+
+Uygulama varsayılan olarak [http://localhost:5173](http://localhost:5173) adresinde çalışacaktır.
+
+---
+
+## Hedefler
+
+- Kategorilere göre bilgi ölçümü  
+- Tema tercihinin kalıcı olması  
+- Anında görsel geri bildirim  
+- Basit ve anlaşılır kullanıcı arayüzü  
+
+---
+
+> Bu proje, frontend becerilerini geliştirme amacıyla oluşturulmuştur. Katkı sağlamak isteyen herkese açıktır!
