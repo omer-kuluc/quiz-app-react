@@ -23,7 +23,7 @@ Uygulama, her kategoriye özel soruları göstererek seçilen cevabın doğru ya
 
 ##  Özellikler
 
-### ✅ Kategori Seçimi
+###  Kategori Seçimi
 
 - HTML, CSS, JavaScript ve Accessibility olmak üzere 4 kategori sunar.
 - Başlangıç ekranında kullanıcı istediği konuyu seçebilir.
