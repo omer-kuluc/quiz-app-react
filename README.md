@@ -40,7 +40,7 @@ Uygulama, her kategoriye özel soruları göstererek seçilen cevabın doğru ya
 
 - Her soru için dört seçenek sunulur.
 - Cevap seçildiğinde doğruysa yeşil, yanlışsa kırmızıyla işaretlenir.
-- Yanlış cevaplarda kısa bir **sallanma animasyonu**, doğru cevapta ise büyüyüp küçülme efekti görülür.
+- Yanlış cevabın işaretlenmesi durumunda doğru cevapta ise yanıp sönme efekti görülür.
 - Cevap verildikten sonra ilerlemek için bir "Next Question" butonu görünür.
 
 ###  Sonuç Ekranı
@@ -48,13 +48,6 @@ Uygulama, her kategoriye özel soruları göstererek seçilen cevabın doğru ya
 - Tüm sorular cevaplandıktan sonra toplam doğru cevap sayısı gösterilir.
 - Kullanıcı "Play Again" butonuyla tekrar quiz çözmeye başlayabilir.
 
-###  Bileşen Yapısı
-
-- Uygulama, React bileşenlerine bölünerek yapılandırılmıştır:
-  - WelcomeScreen
-  - Questions
-  - Header
-  - ResultScreen
 
 ### 📱 Duyarlı Tasarım
 
