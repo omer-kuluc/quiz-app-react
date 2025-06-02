@@ -33,7 +33,8 @@ Uygulama, her kategoriye özel soruları göstererek seçilen cevabın doğru ya
 - Sayfanın sağ üst köşesindeki butonla tema değiştirilebilir.
 - Tema tercihi `localStorage` ile saklanır, sayfa yenilendiğinde bile hatırlanır.
 
-![image](https://github.com/user-attachments/assets/8d368abc-cc5f-4b13-bcb0-8721c2cd3241)
+![image](https://github.com/user-attachments/assets/c12a7728-2e24-4608-a1d5-4c1340918885)
+
 
 
 ###  Soru-Cevap Mantığı
