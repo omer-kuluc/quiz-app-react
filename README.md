@@ -1,4 +1,4 @@
-# 🧠 Frontend Quiz App – React
+# ✅ Frontend Quiz App – React
 
 Kategorilere göre frontend bilgilerini test etmeye olanak tanıyan bir quiz uygulaması.  
 Kullanıcı dostu arayüzü ve anında geri bildirim özelliğiyle sade ve verimli bir deneyim sunar.
