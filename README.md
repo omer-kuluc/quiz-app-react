@@ -28,6 +28,9 @@ Uygulama, her kategoriye özel soruları göstererek seçilen cevabın doğru ya
 - HTML, CSS, JavaScript ve Accessibility olmak üzere 4 kategori sunar.
 - Başlangıç ekranında kullanıcı istediği konuyu seçebilir.
 
+![image](https://github.com/user-attachments/assets/0d010aeb-5266-4b9d-a108-3ade72d90947)
+
+
 ###  Tema Değiştirme (Dark / Light)
 
 - Sayfanın sağ üst köşesindeki butonla tema değiştirilebilir.
@@ -44,10 +47,16 @@ Uygulama, her kategoriye özel soruları göstererek seçilen cevabın doğru ya
 - Yanlış cevabın işaretlenmesi durumunda doğru cevapta ise yanıp sönme efekti görülür.
 - Cevap verildikten sonra ilerlemek için bir "Next Question" butonu görünür.
 
+![image](https://github.com/user-attachments/assets/74fa6d2b-7a81-4c3b-8306-02740748bc66)
+
+
 ###  Sonuç Ekranı
 
 - Tüm sorular cevaplandıktan sonra toplam doğru cevap sayısı gösterilir.
 - Kullanıcı "Play Again" butonuyla tekrar quiz çözmeye başlayabilir.
+
+![image](https://github.com/user-attachments/assets/ecea91b9-3bda-437e-ade5-0b74ee8e0237)
+
 
 
 ### 📱 Duyarlı Tasarım
