@@ -80,7 +80,7 @@ Uygulama, her kategoriye özel soruları göstererek seçilen cevabın doğru ya
 ### 1. Depoyu Klonla
 
 ```bash
-git clone https://github.com/kullanici-adi/quiz-app-react.git
+git clone https://github.com/omer-kuluc/quiz-app-react.git
 ```
 
 ### 2. Dizin Değiştir
